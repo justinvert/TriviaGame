@@ -10,14 +10,16 @@
     <button id="question">Click here to start!</button>
         <div id="start">Hello</div>
         <div id="question1"></div>
+        <div id="question2"></div>
        <div id="testAnswers"></div>
+       <div id="testAnswers2"></div>
         <div id="counter"></div>
-<form id ="quiz">
+<!-- <form id ="quiz" name = "quiz">
         <input type="radio" name="firstQuestion" value="A" id="a" /> test
 <input type="radio" name="firstQuestion" value="B" id="b" /> test
 <input type="radio" name="firstQuestion" value="C" id="c" /> test
-<input type="submit" value="Submit">
-</form>
+<input type="submit" value="Submit" onclick="quizCheck()" />
+</form> -->
     <script type="text/javascript">
 // Variables needed to keep track of which answers are correct
 
@@ -33,16 +35,13 @@
 
 
     //
-    var correctAnswer2 = true;
+    var counters =  document.getElementById("counter");
+    var checkActive = 0;
     var correctAnswer3 = true;
     var correctAnswer4 = true;
 // var countdownstart = false;
 //    var counterHTML = document.getElementById("counter").style.display = 'none';
-    var quiz1= {
-        a: "Red",
-        b: "Green",
-        c: "Blue"
-      };
+    var quiz1= ["Blue","Green","Red"];
 
     var countdown = 12;
  
@@ -53,8 +52,8 @@
        fullGame();
        counting();
        quiz();
+       
        var countFast = setInterval(counting, 1000);
-    
     //  var clickCounter = document.getElementById("counter").style.display = 'inline';
        onClick = this.style.display = 'none';
     }
@@ -67,26 +66,82 @@
     
     function counting(){
     //    countdownstart = true; 
+  
         if (countdown > 0){
         countdown--;
-        document.getElementById("counter").innerHTML = "Time Remaining: " + countdown + " seconds";
+       counters.innerHTML = "Time Remaining: " + countdown + " seconds";
 }
          else {
-             clearInterval(countFast);
+             clearInterval(counting);
               document.getElementById("start").innerHTML = "Game Over!";
          }
+         
         
     }
 
     function quiz(){
-        document.getElementById("question1").innerHTML = "Typically, what color is the sky?";
+        document.getElementById("question1").innerHTML = 
+        "<b>" + "Typically, what color is the sky?" + " </b>" +"</br>" +
+        "<form id ='quiz' name = 'quiz'>" +
+        "<input type='radio' name='firstQuestion' value='A' id='a' />" + quiz1[0]  +
+        "<input type='radio' name='firstQuestion' value='B' id='b' />"  +
+        "<input type='radio' name='firstQuestion' value='C' id='c' />"  +
+        "</form>" ;
+
+         document.getElementById("question2").innerHTML = 
+        "<b>" + "Typically, what color is the sky?" + " </b>" +"</br>" +
+        "<form id ='quiz2' name = 'quiz2'>" +
+        "<input type='radio' name='secondQuestion' value='A' id='a' />" + quiz1[0]  +
+        "<input type='radio' name='secondQuestion' value='B' id='b' />"  +
+        "<input type='radio' name='secondQuestion' value='C' id='c' />"  +
+        "<input type='button' value='Submit' onclick='return quizCheck()' />"  +
+        "</form>" ;
         // document.getElementById("testAnswers").innerHTML = quiz1;
-        console.log(quiz1);
+      
+      
+ }
+    function quizCheck(){
+      
         var correctAnswer1 = document.quiz.firstQuestion.value;
+        var correctAnswer2 = document.quiz2.secondQuestion.value;
         if (correctAnswer1 === "A"){
-            console.log("Correct");
-        }
+            // console.log("Correct");
+            document.getElementById("testAnswers").innerHTML ="Yes";
     }
+
+    else{
+        document.getElementById("testAnswers").innerHTML ="Nope";
+    }
+
+        if (correctAnswer2 === "A"){
+            // console.log("Correct");
+            document.getElementById("testAnswers2").innerHTML ="Yes";
+    }
+
+    else{
+        document.getElementById("testAnswers2").innerHTML ="Nope";
+    }
+    // var correctAnswer2 = document.quiz.firstQuestion.value;
+    // if (correctAnswer2 === "B"){
+    //         // console.log("Correct");
+    //         document.getElementById("testAnswers").innerHTML ="Yes";
+    // }
+
+    // else{
+    //     document.getElementById("testAnswers").innerHTML ="Nope";
+    // }
+    stopCount();
+    
+    }
+
+    function stopCount(){
+        counters.style.display = "none";
+        
+    }
+
+    // function quizReveal(){
+    //     document.getElementById("testAnswers").innerHTML ="Yes";
+    // }
 
     </script>
     
