@@ -9,6 +9,8 @@
 <body>
     <button id="question">Click here to start!</button>
         <div id="start">Hello</div>
+        <div id="question1"></div>
+       <div id="testAnswers"></div>
         <div id="counter"></div>
     <script type="text/javascript">
 // Variables needed to keep track of which answers are correct
@@ -28,11 +30,15 @@
     var correctAnswer2 = true;
     var correctAnswer3 = true;
     var correctAnswer4 = true;
-var countdownstart = false;
-   var counterHTML = document.getElementById("counter").style.display = 'none';
+// var countdownstart = false;
+//    var counterHTML = document.getElementById("counter").style.display = 'none';
+    var quiz1= {
+        a: "text",
+        b: "text2",
+        c: "text3"
+    };
 
-
-    var countdown = 121;
+    var countdown = 12;
  
 
     document.getElementById("question").addEventListener("click", startGame);
@@ -40,25 +46,34 @@ var countdownstart = false;
     function startGame(){
        fullGame();
        counting();
-     var clickCounter = document.getElementById("counter").style.display = 'inline';
+       var countFast = setInterval(counting, 1000);
+    
+    //  var clickCounter = document.getElementById("counter").style.display = 'inline';
        onClick = this.style.display = 'none';
     }
 
     function fullGame(){
         document.getElementById("start").innerHTML = "Game Start!";
-        
+        document.getElementById("question1").innerHTML = "What year did [event name] happen?";
+        document.getElementById("testAnswers").innerHTML = quiz1.a;
+        console.log(quiz1);
     }
     
     function counting(){
-       countdownstart = true; 
-       var countFast = setInterval(counting, 1000);
-        if (countdownstart){
+    //    countdownstart = true; 
+        if (countdown > 0){
         countdown--;
-        document.getElementById("counter").innerHTML = countdown;
+        document.getElementById("counter").innerHTML = "Time Remaining: " + countdown + " seconds";
 }
-         if (countdown === 0) {
+         else {
              clearInterval(countFast);
+              document.getElementById("start").innerHTML = "Game Over!";
          }
+        
+    }
+
+    function quiz(){
+
     }
 
     </script>
