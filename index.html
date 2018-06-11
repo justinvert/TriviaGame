@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="question">Click here to start!</button>
+        <div id="test">Hello</div>
+    <script type="text/javascript">
+// Variables needed to keep track of which answers are correct
+
+// Start button needed to initiate the game
+
+// Page shows questions and clickable options
+
+// Timer added to entire page
+
+// Submit button needed to check answers
+
+// Function to check which answers were right and which answers were wrong - Displays on screen
+
+
+    var correctAnswer1 = true;
+    var correctAnswer2 = true;
+    var correctAnswer3 = true;
+    var correctAnswer4 = true;
+
+    document.getElementById("question").addEventListener("click", startGame);
+
+    function startGame(){
+       fullGame();
+       this.style.display = 'none';
+    }
+
+    function fullGame(){
+        document.getElementById("test").innerHTML = "Testing";
+    }
+    
+
+    </script>
+    
+</body>
+
+</html>
