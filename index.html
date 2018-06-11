@@ -8,7 +8,8 @@
 </head>
 <body>
     <button id="question">Click here to start!</button>
-        <div id="test">Hello</div>
+        <div id="start">Hello</div>
+        <div id="counter"></div>
     <script type="text/javascript">
 // Variables needed to keep track of which answers are correct
 
@@ -28,17 +29,31 @@
     var correctAnswer3 = true;
     var correctAnswer4 = true;
 
+    var countdown = 121;
+    var countFast = setInterval(counting, 1000);
+
     document.getElementById("question").addEventListener("click", startGame);
 
     function startGame(){
        fullGame();
-       this.style.display = 'none';
+       counting();
+       
+       onClick = this.style.display = 'none';
     }
 
     function fullGame(){
-        document.getElementById("test").innerHTML = "Testing";
+        document.getElementById("start").innerHTML = "Game Start!";
     }
     
+    function counting(){
+     
+        countdown--;
+        document.getElementById("counter").innerHTML = countdown;
+
+         if (countdown === 0) {
+             clearInterval(countFast);
+         }
+    }
 
     </script>
     
