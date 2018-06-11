@@ -28,28 +28,34 @@
     var correctAnswer2 = true;
     var correctAnswer3 = true;
     var correctAnswer4 = true;
+var countdownstart = false;
+   var counterHTML = document.getElementById("counter").style.display = 'none';
+
 
     var countdown = 121;
-    var countFast = setInterval(counting, 1000);
+ 
 
     document.getElementById("question").addEventListener("click", startGame);
 
     function startGame(){
        fullGame();
        counting();
-       
+     var clickCounter = document.getElementById("counter").style.display = 'inline';
        onClick = this.style.display = 'none';
     }
 
     function fullGame(){
         document.getElementById("start").innerHTML = "Game Start!";
+        
     }
     
     function counting(){
-     
+       countdownstart = true; 
+       var countFast = setInterval(counting, 1000);
+        if (countdownstart){
         countdown--;
         document.getElementById("counter").innerHTML = countdown;
-
+}
          if (countdown === 0) {
              clearInterval(countFast);
          }
