@@ -12,6 +12,12 @@
         <div id="question1"></div>
        <div id="testAnswers"></div>
         <div id="counter"></div>
+<form id ="quiz">
+        <input type="radio" name="firstQuestion" value="A" id="a" /> test
+<input type="radio" name="firstQuestion" value="B" id="b" /> test
+<input type="radio" name="firstQuestion" value="C" id="c" /> test
+<input type="submit" value="Submit">
+</form>
     <script type="text/javascript">
 // Variables needed to keep track of which answers are correct
 
@@ -26,17 +32,17 @@
 // Function to check which answers were right and which answers were wrong - Displays on screen
 
 
-    var correctAnswer1 = true;
+    //
     var correctAnswer2 = true;
     var correctAnswer3 = true;
     var correctAnswer4 = true;
 // var countdownstart = false;
 //    var counterHTML = document.getElementById("counter").style.display = 'none';
     var quiz1= {
-        a: "text",
-        b: "text2",
-        c: "text3"
-    };
+        a: "Red",
+        b: "Green",
+        c: "Blue"
+      };
 
     var countdown = 12;
  
@@ -46,6 +52,7 @@
     function startGame(){
        fullGame();
        counting();
+       quiz();
        var countFast = setInterval(counting, 1000);
     
     //  var clickCounter = document.getElementById("counter").style.display = 'inline';
@@ -54,9 +61,8 @@
 
     function fullGame(){
         document.getElementById("start").innerHTML = "Game Start!";
-        document.getElementById("question1").innerHTML = "What year did [event name] happen?";
-        document.getElementById("testAnswers").innerHTML = quiz1.a;
-        console.log(quiz1);
+       
+     
     }
     
     function counting(){
@@ -73,7 +79,13 @@
     }
 
     function quiz(){
-
+        document.getElementById("question1").innerHTML = "Typically, what color is the sky?";
+        // document.getElementById("testAnswers").innerHTML = quiz1;
+        console.log(quiz1);
+        var correctAnswer1 = document.quiz.firstQuestion.value;
+        if (correctAnswer1 === "A"){
+            console.log("Correct");
+        }
     }
 
     </script>
