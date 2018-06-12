@@ -66,14 +66,17 @@
     
     function counting(){
     //    countdownstart = true; 
+   
   
         if (countdown > 0){
+            
         countdown--;
        counters.innerHTML = "Time Remaining: " + countdown + " seconds";
 }
-         else {
-             clearInterval(counting);
-              document.getElementById("start").innerHTML = "Game Over!";
+else if (countdown == 0){
+  
+        clearInterval(counting);
+              document.getElementById("start").innerHTML = "Thank you for playing.";
          }
          
         
@@ -106,11 +109,18 @@
         var correctAnswer2 = document.quiz2.secondQuestion.value;
         if (correctAnswer1 === "A"){
             // console.log("Correct");
-            document.getElementById("testAnswers").innerHTML ="Yes";
+            document.getElementById("testAnswers").innerHTML = quiz1[0] + " is the correct answer!";
+            document.getElementById("question1").style.color = 'green';
     }
 
-    else{
-        document.getElementById("testAnswers").innerHTML ="Nope";
+   if (correctAnswer1 === "B"){
+        document.getElementById("testAnswers").innerHTML = quiz1[1] + " is incorrect.";
+        document.getElementById("question1").style.color = 'red';
+    }
+
+      if (correctAnswer1 === "C"){
+        document.getElementById("testAnswers").innerHTML = quiz1[2] + " is incorrect.";
+        document.getElementById("question1").style.color = 'red';
     }
 
         if (correctAnswer2 === "A"){
@@ -135,8 +145,10 @@
     }
 
     function stopCount(){
-        counters.style.display = "none";
-        
+        countdown = 0;
+        counters.innerHTML = "";
+        document.getElementById("start").innerHTML = "";
+
     }
 
     // function quizReveal(){
