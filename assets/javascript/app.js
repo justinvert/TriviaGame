@@ -1,23 +1,9 @@
-// Variables needed to keep track of which answers are correct
 
-// Start button needed to initiate the game
-
-// Page shows questions and clickable options
-
-// Timer added to entire page
-
-// Submit button needed to check answers
-
-// Function to check which answers were right and which answers were wrong - Displays on screen
-
-
-    //
     var counters =  document.getElementById("counter");
     var checkActive = 0;
     var correctAnswer3 = true;
     var correctAnswer4 = true;
-// var countdownstart = false;
-//    var counterHTML = document.getElementById("counter").style.display = 'none';
+
     var quiz1 = ["CMLL (Mexico)","NJPW (Japan)","WWE (US)", "Impact Wrestling (Canada)"];
     var quiz2 = ["WWE (US)","Impact Wrestling (Canada)","ROH (US)"];
     var quiz3 = ["Korakuen Hall","The Tokyo Dome","Osaka-Jo Hall", "Madison Square Garden"];
@@ -34,7 +20,7 @@
        quiz();
        
        var countFast = setInterval(counting, 1000);
-    //  var clickCounter = document.getElementById("counter").style.display = 'inline';
+
        onClick = this.style.display = 'none';
     }
     
@@ -45,7 +31,6 @@
     }
     
     function counting(){
-    //    countdownstart = true; 
    
         if (countdown > 0){
 
@@ -56,7 +41,6 @@
 else if (countdown = 0){
     clearInterval(counting);
     disable();
-    // return quizCheck();
 
 }
 else {
@@ -126,7 +110,6 @@ function disable(){
         "<input type='submit' name='submit' value='Submit' id='submitbutton' onclick='quizCheck()' />"  +
         "</form>" ;
 
-        // document.getElementById("testAnswers").innerHTML = quiz1;
       
       
  }
@@ -138,7 +121,6 @@ function disable(){
         var correctAnswer4 = document.quiz4.fourthQuestion.value;
         var correct = 0;
         if (correctAnswer1 === "A"){
-            // console.log("Correct");
             document.getElementById("testAnswers").innerHTML = quiz1[0] + " is the correct answer!";
             document.getElementById("question1").style.color = 'green';
             correct++;
@@ -164,7 +146,6 @@ function disable(){
     }
 
 if (correctAnswer2 === "A"){
-            // console.log("Correct");
             document.getElementById("testAnswers2").innerHTML = quiz2[0] + " is incorrect.";
             document.getElementById("question2").style.color = 'red';
             
@@ -185,7 +166,6 @@ if (correctAnswer2 === "A"){
     }
 
     if (correctAnswer3 === "A"){
-            // console.log("Correct");
             document.getElementById("testAnswers3").innerHTML = quiz3[0] + " is incorrect.";
             document.getElementById("question3").style.color = 'red';
             
@@ -212,7 +192,6 @@ if (correctAnswer2 === "A"){
     }
 
      if (correctAnswer4 === "A"){
-            // console.log("Correct");
             document.getElementById("testAnswers4").innerHTML = quiz4[0] + " is incorrect.";
             document.getElementById("question4").style.color = 'red';
             
@@ -265,7 +244,3 @@ document.getElementById("stats").innerHTML = correct + " out of 4 correct!";
         document.getElementById("start").innerHTML = "<div style='display:inline;'>Pro-Wrestling Trivia Quiz</div>";
 
     }
-
-    // function quizReveal(){
-    //     document.getElementById("testAnswers").innerHTML ="Yes";
-    // }
