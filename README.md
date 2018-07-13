@@ -10,5 +10,30 @@ In order to create the countdown for this code, a global variable was set at 120
 
 ```
   var countdown = 120;
-  
+
+```
+
+After the user has decided to visit the game, by clicking start, they start a function with multiple other functions in it. The important part of this function is the setInterval() method that begins to properly countdown to zero. It uses the function counting and 1000 milliseconds as its pace. 
+
+```
+function startGame(){
+       fullGame();
+       counting();
+       quiz();
+       
+       var countFast = setInterval(counting, 1000);
+
+       onClick = this.style.display = 'none';
+    }
+```
+The counting function itself:
+
+```
+   function counting(){
+   
+        if (countdown > 0){
+
+        countdown--;
+       counters.innerHTML = "Time Remaining: " + countdown + " seconds";
+}
 ```
